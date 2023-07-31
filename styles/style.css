@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap');
+
+:root {
+    --primary-color: #000e38;
+    --secondary-color: #EFEDFF;
+    --tertiary-color: #FFB800;
+    --hover-color: #1355c6;
+
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.header{
+    padding: 2% 0% 0% 15%;
+}
+
+.header__menu{
+    display: flex;
+    gap: 5rem;
+}
+
+.header__menu__link{
+    font-family: var(--primary-font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+
+.header__menu__link:hover{
+    color: var(--hover-color);
+}
+
+.presentation{
+    padding: 5% 15%;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.presentation__content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.presentation__content__title{
+    font-size: 2.25rem;
+    font-family: var(--primary-font);
+}
+
+.featured-title{
+    color: var(--tertiary-color);
+}
+
+.presentation__content__text{
+    font-size: 1.5rem;
+    font-family: var(--primary-font);
+}
+
+.presentation__content__about__text{
+    font-size: 1.3rem;
+    font-family: var(--primary-font);
+}
+
+.presentation__links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.presentation__links__subtitle{
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.presentation__links__navigation{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 1px solid var(--tertiary-color);
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: var(--primary-font);
+}
+
+.presentation__links__navigation:hover{
+    background-color: var(--hover-color);
+}
+
+.presentation__image{
+    width: 50%;
+}
+
+.presentation__image__about{
+    width: 50%;
+}
+
+.footer{
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+    .header{
+         padding: 10%;  
+    }
+    .header__menu{
+        justify-content: center;
+    }
+    .presentation{
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+    .presentation__content{
+        width: auto;
+    }
+}
