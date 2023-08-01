@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/records.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+    <title>Cadastro de Pessoas</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="header__menu">
+            <a class="header__menu__link" href="index.html">Inicio</a>
+            <a class="header__menu__link" href="about.html">Sobre mim</a>
+
+        </nav>
+    </header>
+    <main>
+        <button type="button" class="button orange mobile" id="registerPerson">+ Novo</button>
+        <table class="records" id="tablePerson">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nasc.</th>
+                    <th>Sexo</th>
+                    <th>Endereço</th>
+                    <th>Cidade/UF</th>
+                    <th>Celular</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Novo Cadastro de Pessoa</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form" id="formPerson">
+                    <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" required>
+                    <input type="date" class="modal-field" id="dateOfBirth" placeholder="Data Nascimento" required>
+                    <select class="modal-field" id="gender" required>
+                        <option value="">Selecione seu genero:</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
+                    <input type="text" class="modal-field" id="address" placeholder="Endereço" required>
+                    <input type="text" class="modal-field" id="city" placeholder="Cidade" required>
+                    <input type="email" class="modal-field" id="email" placeholder="e-mail" required>
+                    <input type="text" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green" id="buttonSavePerson">Salvar</button>
+                    <button class="button grey" id="buttonCancelPerson">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script src="./js/main.js" defer></script>
+</html>
