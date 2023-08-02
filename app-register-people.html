@@ -21,7 +21,7 @@
         </nav>
     </header>
     <main>
-        <button type="button" class="button orange mobile" id="registerPerson">+ Novo</button>
+        <button type="button" class="button orange mobile" onclick="openModal()" id="registerPerson">+ Novo</button>
         <table class="records" id="tablePerson">
             <thead>
                 <tr>
@@ -44,11 +44,11 @@
             <div class="modal-content">
                 <header class="modal-header">
                     <h2>Novo Cadastro de Pessoa</h2>
-                    <span class="modal-close" id="modalClose">&#10006;</span>
+                    <span class="modal-close" id="modalClose" onclick="closeModal()">&#10006;</span>
                 </header>
                 <form class="modal-form" id="formPerson">
                     <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" required>
-                    <input type="date" class="modal-field" id="dateOfBirth" placeholder="Data Nascimento" required>
+                    <input type="date"  class="modal-field" id="dateOfBirth" placeholder="Data Nascimento" required>
                     <select class="modal-field" id="gender" required>
                         <option value="">Selecione seu genero:</option>
                         <option value="Masculino">Masculino</option>
@@ -59,14 +59,52 @@
                     <input type="email" class="modal-field" id="email" placeholder="e-mail" required>
                     <input type="text" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
                 </form>
+                <!-- <form class="modal-form" id="formPerson">
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="name">Nome Completo:</label>
+                        <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="dateOfBirth">Data de Nascimento:</label>
+                        <input type="date" class="modal-field" id="dateOfBirth" required>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="gender">Gênero:</label>
+                        <select class="modal-field" id="gender" required>
+                            <option value="">Selecione seu genero:</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="address">Endereço:</label>
+                        <input type="text" class="modal-field" id="address" placeholder="Endereço" required>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="city">Cidade:</label>
+                        <input type="text" class="modal-field" id="city" placeholder="Cidade" required>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="email">E-mail:</label>
+                        <input type="email" class="modal-field" id="email" placeholder="e-mail" required>
+                    </div>
+                    <div class="modal-inputs">
+                        <label class="modal-label" for="mobile">Celular:</label>
+                        <input type="text" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
+                    </div>
+                    <footer class="modal-footer">
+                        <button class="button green" id="buttonSavePerson" onclick="savePerson()">Salvar</button>
+                        <button class="button grey" id="buttonCancelPerson" onclick="closeModal()">Cancelar</button>
+                    </footer>
+                </form> -->
                 <footer class="modal-footer">
-                    <button class="button green" id="buttonSavePerson">Salvar</button>
-                    <button class="button grey" id="buttonCancelPerson">Cancelar</button>
+                    <button class="button green" id="buttonSavePerson" onclick="savePerson()">Salvar</button>
+                    <button class="button grey" id="buttonCancelPerson" onclick="closeModal()">Cancelar</button>
                 </footer>
             </div>
-        </div>
+        </div> 
     </main>
-    <footer>
+    <footer >
 
     </footer>
 </body>

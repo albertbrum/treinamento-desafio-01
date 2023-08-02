@@ -1,10 +1,10 @@
 // Utilização mais segura do EMA Script 2020
 //'use strict'
 
-// Abre e Fecha o Modal com Formulário de Pessoa
+// Abre Fecha o Modal com Formulário de Pessoa
 const openModal = () => document.getElementById('modal')
     .classList.add('active')
-
+// Abre Fecha o Modal com Formulário de Pessoa
 const closeModal = () => {
     document.getElementById('modal').classList.remove('active')
     clearFields()
@@ -18,10 +18,8 @@ const closeModal = () => {
 // JSON.parse - recebe em JSON/texto e constroe novamente o objeto
 // push - adiciona um ou mais elementos ao final de um array
 // ?? - Se retornar null retorna valor após "??", no caso []
-
 const getLocalStorage = () => JSON.parse(localStorage.getItem('localStoKeyListPerson')) ?? []
 const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerson", JSON.stringify(dbPerson))
-
 
 // *** CRUD - CREATE, READ, UPDATE, DELETE
 
@@ -58,56 +56,62 @@ const isValidFields = () => {
 }
 
 // Função para aplicar a máscara de mobile
-function formatarMobile(mobile) {
+function formatMobile(mobile) {
     // Remove todos os caracteres não numéricos do número do mobile
-    const numerosApenas = mobile.replace(/\D/g, '');
+    const onlyNumbers = mobile.replace(/\D/g, '');
 
-    // Verifica o tamanho atual do número
-    const tamanho = numerosApenas.length;
+    // Verifica o lenght atual do número
+    const lenght = onlyNumbers.length;
 
     // Aplica a máscara com base no tamanho do número
-    if (tamanho === 11) {
-        return numerosApenas.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-    } else if (tamanho === 10) {
-        return numerosApenas.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-    } else {
-        // Se o número não se encaixar em nenhum dos padrões, retorna o número não formatado
-        return numerosApenas;
+    if (lenght === 11) {
+        return onlyNumbers
+        .replace(/(\d{2})/, '($1) ')
+        .replace(/(\d{5})/, '$1-')
+        .replace(/(\d{4})/, '$1')
     }
+    return onlyNumbers
+        .replace(/(\d{2})/, '($1) ')
+        .replace(/(\d{4})/, '$1-')
+        .replace(/(\d{4})/, '$1')
 }
 
 // Função para atualizar o valor do campo com a máscara formatada
-function mascaraMobile() {
-    const campoMobile = document.getElementById('mobile');
-    const numeroMobile = campoMobile.value;
-    const numeroFormatado = formatarMobile(numeroMobile);
-
-    campoMobile.value = numeroFormatado;
+function maskMobile() {
+    const fieldMobile = document.getElementById('mobile');
+    const numberMobile = fieldMobile.value;
+    const numberFormated = formatMobile(numberMobile);
+    fieldMobile.value = numberFormated;
 }
 
 // Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
-document.getElementById('mobile').addEventListener('input', mascaraMobile);
-
+document.getElementById('mobile').addEventListener('input', maskMobile);
 
 // *** INTERAÇÃO E MANIPULAÇÃO DO LAYOUT (HTML-CSS)
-
 const clearFields = () => {
     const fields = document.querySelectorAll('.modal-field')
     fields.forEach(field => field.value = "")
 }
 
+// Manipulação da Data para formato Brasileiro
+function formatDateBrazil(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  }
+
 const savePerson = () => {
+    // Validação dos Campos e construção da lista com informações do campo
     if (isValidFields()) {
         const person = {
             name: document.getElementById('name').value,
-            dateOfBirth: document.getElementById('dateOfBirth').value,
+            dateOfBirth: formatDateBrazil(document.getElementById('dateOfBirth').value),
             gender: document.getElementById('gender').value,
             address: document.getElementById('address').value,
             city: document.getElementById('city').value,
             mobile: document.getElementById('mobile').value,
             email: document.getElementById('email').value,
         }
-
+        // Estrutura para verificação
         const index = document.getElementById('name').dataset.index
         if (index == 'new') {
             createPerson(person)
@@ -119,6 +123,17 @@ const savePerson = () => {
             closeModal()
         }
     }
+}
+
+// Função para converter data no formato do Brasil (DD/MM/AAAA)
+const person = {
+    name: document.getElementById('name').value,
+    dateOfBirth: document.getElementById('dateOfBirth').value, // Convertendo a data para o formato brasileiro
+    gender: document.getElementById('gender').value,
+    address: document.getElementById('address').value,
+    city: document.getElementById('city').value,
+    mobile: document.getElementById('mobile').value,
+    email: document.getElementById('email').value,
 }
 
 const createRow = (person, index) => {
@@ -153,7 +168,10 @@ const updateTable = () => {
 
 // Botões de Ações
 
+const dateLocale = document.getElementById('dateOfBirth')
+
 const fillFields = (person) => {
+    
     document.getElementById('name').value = person.name
     document.getElementById('dateOfBirth').value = person.dateOfBirth
     document.getElementById('gender').value = person.gender
@@ -161,7 +179,6 @@ const fillFields = (person) => {
     document.getElementById('city').value = person.city
     document.getElementById('mobile').value = person.mobile
     document.getElementById('email').value = person.email
-
     document.getElementById('name').dataset.index = person.index
 }
 
@@ -192,22 +209,21 @@ const selectActions = (event) => {
 
 updateTable()
 
-
-// *** EVENTOS
+// *** EVENTO EDIT
 
 // botões
 
-document.getElementById('registerPerson')
-    .addEventListener('click', openModal)
+// document.getElementById('registerPerson')
+//     .addEventListener('click', openModal)
 
-document.getElementById('modalClose')
-    .addEventListener('click', closeModal)
+// document.getElementById('modalClose')
+//     .addEventListener('click', closeModal)
 
-document.getElementById('buttonSavePerson')
-    .addEventListener('click', savePerson)
+// document.getElementById('buttonSavePerson')
+//     .addEventListener('click', savePerson)
 
 document.querySelector('#tablePerson>tbody')
     .addEventListener('click', selectActions)
 
-document.getElementById('buttonCancelPerson')
-    .addEventListener('click', closeModal)
+// document.getElementById('buttonCancelPerson')
+//     .addEventListener('click', closeModal)
