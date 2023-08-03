@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/records.css">
     <link rel="stylesheet" href="css/modal.css">
-
     <title>Cadastro de Pessoas</title>
 </head>
 <body>
     <header class="header">
         <nav class="header__menu">
             <a class="header__menu__link" href="index.html">Inicio</a>
-            <a class="header__menu__link" href="about.html">Sobre mim</a>
-
+            <a class="header__menu__link" href="about.html">Sobre o Desafio</a>
         </nav>
     </header>
     <main>
@@ -47,65 +45,27 @@
                     <span class="modal-close" id="modalClose" onclick="closeModal()">&#10006;</span>
                 </header>
                 <form class="modal-form" id="formPerson">
-                    <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" required>
-                    <input type="date"  class="modal-field" id="dateOfBirth" placeholder="Data Nascimento" required>
+                    <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" maxlength="40" required>
+                    <input type="date"  class="modal-field" id="dateOfBirth" placeholder="Data Nascimento" min="01-01-1900" max="12-31-2023" required>
                     <select class="modal-field" id="gender" required>
                         <option value="">Selecione seu genero:</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
                     </select>
-                    <input type="text" class="modal-field" id="address" placeholder="Endereço" required>
-                    <input type="text" class="modal-field" id="city" placeholder="Cidade" required>
-                    <input type="email" class="modal-field" id="email" placeholder="e-mail" required>
+                    <input type="text" class="modal-field" id="address" placeholder="Endereço" maxlength="50" required>
+                    <input type="text" class="modal-field" id="city" placeholder="Cidade" maxlength="30" required>
+                    <input type="email" class="modal-field" id="email" placeholder="e-mail" maxlength="15" required>
                     <input type="text" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
                 </form>
-                <!-- <form class="modal-form" id="formPerson">
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="name">Nome Completo:</label>
-                        <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo" required>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="dateOfBirth">Data de Nascimento:</label>
-                        <input type="date" class="modal-field" id="dateOfBirth" required>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="gender">Gênero:</label>
-                        <select class="modal-field" id="gender" required>
-                            <option value="">Selecione seu genero:</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                        </select>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="address">Endereço:</label>
-                        <input type="text" class="modal-field" id="address" placeholder="Endereço" required>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="city">Cidade:</label>
-                        <input type="text" class="modal-field" id="city" placeholder="Cidade" required>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="email">E-mail:</label>
-                        <input type="email" class="modal-field" id="email" placeholder="e-mail" required>
-                    </div>
-                    <div class="modal-inputs">
-                        <label class="modal-label" for="mobile">Celular:</label>
-                        <input type="text" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
-                    </div>
-                    <footer class="modal-footer">
-                        <button class="button green" id="buttonSavePerson" onclick="savePerson()">Salvar</button>
-                        <button class="button grey" id="buttonCancelPerson" onclick="closeModal()">Cancelar</button>
-                    </footer>
-                </form> -->
-                <footer class="modal-footer">
+                 <footer class="modal-footer">
                     <button class="button green" id="buttonSavePerson" onclick="savePerson()">Salvar</button>
                     <button class="button grey" id="buttonCancelPerson" onclick="closeModal()">Cancelar</button>
                 </footer>
             </div>
         </div> 
     </main>
-    <footer >
-
+    <footer>
+        <p>Desafio 01 - Treinamento - Albert Brum - 2023</p>
     </footer>
 </body>
 <script src="./js/main.js" defer></script>

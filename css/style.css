@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap');
+
 *{
     margin: 0;
     padding: 0;
 }
+
 :root {
     /* Pallets Colors */
     --primary-color: #000e38;
@@ -20,6 +22,27 @@ body{
     box-sizing: border-box;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+}
+
+li{
+    font-family: var(--primary-font);
+    padding: 2%;
+    color: var(--tertiary-color);
+
+}
+
+a {
+    color: var(--tertiary-color);
+}
+
+footer {
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .header{
@@ -44,7 +67,7 @@ body{
 }
 
 .presentation{
-    padding: 5% 15%;
+    padding: 5% 15%; 
     display: flex;
     justify-content: space-between;
     gap: 4rem;
@@ -112,25 +135,25 @@ body{
 
 .presentation__image{
     width: 50%;
-}
+    justify-content: center;
+} 
 
 .presentation__image__about{
-    width: 50%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+
 }
 
-.footer{
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
-    padding: 1rem;
-    text-align: center;
-    font-family: var(--primary-font);
-    font-size: 1.5rem;
-    font-weight: 400;
+.header{
+    padding: 5%;
+    font-size: 1em;
 }
 
 @media (max-width: 1200px) {
     .header{
-         padding: 10%;  
+         padding: 10%; 
+         font-size: 8px; 
     }
     .header__menu{
         justify-content: center;
@@ -142,4 +165,8 @@ body{
     .presentation__content{
         width: auto;
     }
+    .presentation__image{
+        height: 200px;
+        width: 100%;
+    } 
 }

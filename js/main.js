@@ -1,5 +1,5 @@
 // Utilização mais segura do EMA Script 2020
-//'use strict'
+'use strict'
 
 // Abre Fecha o Modal com Formulário de Pessoa
 const openModal = () => document.getElementById('modal')
@@ -11,7 +11,6 @@ const closeModal = () => {
 }
 
 // *** GET E SET LOCAL STORAGE
-
 // setItem - envio dos dados para localstorage
 // getItem - recupera dados do localstorage
 // JSON.stringify - transforma em JSON/texto para enviar para localstorage
@@ -20,6 +19,7 @@ const closeModal = () => {
 // ?? - Se retornar null retorna valor após "??", no caso []
 const getLocalStorage = () => JSON.parse(localStorage.getItem('localStoKeyListPerson')) ?? []
 const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerson", JSON.stringify(dbPerson))
+console.log(getLocalStorage)
 
 // *** CRUD - CREATE, READ, UPDATE, DELETE
 
@@ -27,6 +27,7 @@ const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerso
 const createPerson = (dataPerson) => {
     const dbPerson = getLocalStorage()
     dbPerson.push (dataPerson)
+    console.log(dataPerson)
     setLocalStorage(dbPerson)
 }
 
@@ -47,17 +48,16 @@ const deletePerson = (index) => {
     setLocalStorage(dbPerson)
 }
 
-
 // *** VALIDAÇÃO E TRATAMENTO DE ENTRADAS DO FORMULÁRIO DE PESSOAS
 
 // verifica se campos sao validos e retorna true ou false
 const isValidFields = () => {
    return document.getElementById('formPerson').reportValidity()
 }
-
 // Função para aplicar a máscara de mobile
 function formatMobile(mobile) {
     // Remove todos os caracteres não numéricos do número do mobile
+    // O \D é um metacaractere que representa qualquer caractere que não seja um dígito numérico (0 a 9).
     const onlyNumbers = mobile.replace(/\D/g, '');
 
     // Verifica o lenght atual do número
@@ -97,8 +97,9 @@ const clearFields = () => {
 function formatDateBrazil(dateString) {
     const [year, month, day] = dateString.split('-');
     return `${day}/${month}/${year}`;
-  }
+}
 
+// Recupera os dados do formulário para criar ou atualizar em Local Storage
 const savePerson = () => {
     // Validação dos Campos e construção da lista com informações do campo
     if (isValidFields()) {
@@ -111,7 +112,7 @@ const savePerson = () => {
             mobile: document.getElementById('mobile').value,
             email: document.getElementById('email').value,
         }
-        // Estrutura para verificação
+        // Estrutura para verificação se Nova Pessoa ou Edição Pessoa via data atribuite criado com (data-index="new")
         const index = document.getElementById('name').dataset.index
         if (index == 'new') {
             createPerson(person)
@@ -125,17 +126,7 @@ const savePerson = () => {
     }
 }
 
-// Função para converter data no formato do Brasil (DD/MM/AAAA)
-const person = {
-    name: document.getElementById('name').value,
-    dateOfBirth: document.getElementById('dateOfBirth').value, // Convertendo a data para o formato brasileiro
-    gender: document.getElementById('gender').value,
-    address: document.getElementById('address').value,
-    city: document.getElementById('city').value,
-    mobile: document.getElementById('mobile').value,
-    email: document.getElementById('email').value,
-}
-
+ // Estrutura criar os dados em HTML em uma nova linha a partir de um registro do Local Storage
 const createRow = (person, index) => {
     const newRow = document.createElement('tr')
     newRow.innerHTML = `
@@ -151,27 +142,27 @@ const createRow = (person, index) => {
             <button type="button" class="button red" id="delete-${index}">Excluir</button>
         </td>
         `   
+    // Constroi uma nova linha filha dentro da "tbody", criada dentro tabela com id "tablePerson"
     document.querySelector('#tablePerson>tbody').appendChild(newRow)
 }
 
+// Limpa dados da tabela
 const clearTable = () => {
     const rows = document.querySelectorAll('#tablePerson>tbody tr')
     rows.forEach(row => row.parentNode.removeChild(row))
 }
 
-// carrega dados e cria listagem na tabela de pessoas
+// Carrega dados e cria listagem na tabela de pessoas
 const updateTable = () => {
     const dbPerson = readPerson()
     clearTable()
-    dbPerson.forEach(createRow)
+    dbPerson.forEach(createRow) // Estrutura para creação da tabela apartir de dados existentes na Local Storage
 }
 
-// Botões de Ações
+// ***BOTOES DE EDICAO / EXCLUSAO
 
-const dateLocale = document.getElementById('dateOfBirth')
-
+// Preenche os campos para edição
 const fillFields = (person) => {
-    
     document.getElementById('name').value = person.name
     document.getElementById('dateOfBirth').value = person.dateOfBirth
     document.getElementById('gender').value = person.gender
@@ -179,9 +170,11 @@ const fillFields = (person) => {
     document.getElementById('city').value = person.city
     document.getElementById('mobile').value = person.mobile
     document.getElementById('email').value = person.email
+    // pega a partir do index do elemento
     document.getElementById('name').dataset.index = person.index
 }
 
+// Função Abertura do Modal e e chamada de preenchimento para edição do registro de pessoa em Local Storage
 const editPerson = (index) => {
     const person = readPerson()[index]
     person.index = index
@@ -189,6 +182,7 @@ const editPerson = (index) => {
     openModal()
 }
 
+// Função para Seleção do botão de edição ou Exclusão
 const selectActions = (event) => {
     if (event.target.type == 'button') {
 
@@ -207,12 +201,10 @@ const selectActions = (event) => {
     }
 }
 
+// *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
 
-// *** EVENTO EDIT
-
-// botões
-
+// REFATORAÇÃO PARA DIMINUIÇÃO DE PROCESSAMENTO "IN SERVER" COM USO DO ON CLICK NO HTML
 // document.getElementById('registerPerson')
 //     .addEventListener('click', openModal)
 
