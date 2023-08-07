@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -36,7 +37,11 @@ a {
     color: var(--tertiary-color);
 }
 
-footer {
+.featured-title{
+    color: var(--tertiary-color);
+}
+
+.footer {
     color: var(--primary-color);
     background-color: var(--tertiary-color);
     padding: 1rem;
@@ -44,7 +49,7 @@ footer {
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-}
+} 
 
 .header{
     display: flex;
@@ -87,10 +92,6 @@ footer {
 .presentation__content__title{
     font-size: 2.25rem;
     font-family: var(--primary-font);
-}
-
-.featured-title{
-    color: var(--tertiary-color);
 }
 
 .presentation__content__text{
@@ -148,7 +149,7 @@ footer {
     justify-content: center;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .header{
          padding: 10%; 
          font-size: 0.125rem; 

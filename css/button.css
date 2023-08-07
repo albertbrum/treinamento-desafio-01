@@ -57,7 +57,7 @@ button.grey{
         height:50px;
         border-radius: 50%;
         position:fixed;
-        top: 90vh;
+        top: 75vh;
         left: 80vw;
     }
     .button.mobile::before{

@@ -1,10 +1,10 @@
 // Utilização mais segura do EMA Script 2020
 'use strict'
 
-// Abre Fecha o Modal com Formulário de Pessoa
+// Abre o Modal com Formulário de Pessoa
 const openModal = () => document.getElementById('modal')
     .classList.add('active')
-// Abre Fecha o Modal com Formulário de Pessoa
+// Fecha o Modal com Formulário de Pessoa
 const closeModal = () => {
     document.getElementById('modal').classList.remove('active')
     clearFields()
@@ -19,7 +19,6 @@ const closeModal = () => {
 // ?? - Se retornar null retorna valor após "??", no caso []
 const getLocalStorage = () => JSON.parse(localStorage.getItem('localStoKeyListPerson')) ?? []
 const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerson", JSON.stringify(dbPerson))
-console.log(getLocalStorage)
 
 // *** CRUD - CREATE, READ, UPDATE, DELETE
 
@@ -27,7 +26,6 @@ console.log(getLocalStorage)
 const createPerson = (dataPerson) => {
     const dbPerson = getLocalStorage()
     dbPerson.push (dataPerson)
-    console.log(dataPerson)
     setLocalStorage(dbPerson)
 }
 
@@ -59,10 +57,8 @@ function formatMobile(mobile) {
     // Remove todos os caracteres não numéricos do número do mobile
     // O \D é um metacaractere que representa qualquer caractere que não seja um dígito numérico (0 a 9).
     const onlyNumbers = mobile.replace(/\D/g, '');
-
     // Verifica o lenght atual do número
     const lenght = onlyNumbers.length;
-
     // Aplica a máscara com base no tamanho do número
     if (lenght === 11) {
         return onlyNumbers
@@ -117,7 +113,7 @@ const savePerson = () => {
             mobile: document.getElementById('mobile').value,
             email: document.getElementById('email').value,
         }
-        // Estrutura para verificação se Nova Pessoa ou Edição Pessoa via data atribuite criado com (data-index="new")
+        // Estrutura para verificação se "Cria" Pessoa ou "Edita" Pessoa via data atribuite (data-index="new")
         const index = document.getElementById('name').dataset.index
         if (index == 'new') {
             createPerson(person)
@@ -170,7 +166,6 @@ const updateTable = () => {
 const fillFields = (person) => {
     document.getElementById('name').value = person.name
     document.getElementById('dateOfBirth').value = formatDateInput(person.dateOfBirth)
-    console.log(formatDateInput(person.dateOfBirth))
     document.getElementById('gender').value = person.gender
     document.getElementById('address').value = person.address
     document.getElementById('city').value = person.city
@@ -191,9 +186,8 @@ const editPerson = (index) => {
 // Função para Seleção do botão de edição ou Exclusão
 const selectActions = (event) => {
     if (event.target.type == 'button') {
-
+        // Separa nome do botão pelo "-" para condição de edição ou exclusão
         const [action, index] = event.target.id.split('-')
-
         if(action == 'edit') {
             editPerson(index)
         } else {
