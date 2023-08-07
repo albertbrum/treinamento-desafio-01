@@ -36,8 +36,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                </tr>
+                <!-- <tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="modal" id="modal">
@@ -55,7 +55,7 @@
                     <div class="content-fields">
                         <label class="label-field">Data de Nascimento</label>
                         <input type="date" class="modal-field" id="dateOfBirth" placeholder="Data Nascimento"
-                            min="01-01-1900" max="12-31-2023" required>
+                            min="1900-01-01" max="2023-07-08" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Genero</label>
@@ -66,18 +66,16 @@
                         </select>
                     </div>
                     <div class="content-fields"><label class="label-field">Endereço</label>
-                        <input type="text" class="modal-field" id="address" placeholder="Endereço" maxlength="50"
+                        <input type="text" class="modal-field" id="address" placeholder="Endereço" maxlength="100"
                             required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Cidade</label>
-                        <input type="text" class="modal-field" id="city" placeholder="Cidade" maxlength="30" required>
+                        <input type="text" class="modal-field" id="city" placeholder="Cidade" maxlength="40" required>
                     </div>
-
-
                     <div class="content-fields">
                         <label class="label-field">E-mail</label>
-                        <input type="email" class="modal-field" id="email" placeholder="e-mail" maxlength="15" required>
+                        <input type="email" class="modal-field" id="email" placeholder="e-mail" maxlength="50" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Celular</label>

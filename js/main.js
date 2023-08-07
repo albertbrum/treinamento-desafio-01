@@ -99,6 +99,11 @@ function formatDateBrazil(dateString) {
     return `${day}/${month}/${year}`;
 }
 
+function formatDateInput(dateString) {
+    const [day, month, year] = dateString.split('/');
+    return `${year}-${month}-${day}`;
+}
+
 // Recupera os dados do formulário para criar ou atualizar em Local Storage
 const savePerson = () => {
     // Validação dos Campos e construção da lista com informações do campo
@@ -164,7 +169,8 @@ const updateTable = () => {
 // Preenche os campos para edição
 const fillFields = (person) => {
     document.getElementById('name').value = person.name
-    document.getElementById('dateOfBirth').value = person.dateOfBirth
+    document.getElementById('dateOfBirth').value = formatDateInput(person.dateOfBirth)
+    console.log(formatDateInput(person.dateOfBirth))
     document.getElementById('gender').value = person.gender
     document.getElementById('address').value = person.address
     document.getElementById('city').value = person.city
