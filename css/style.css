@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -47,7 +48,6 @@ footer {
 
 .header{
     display: flex;
-    padding: 2% 0% 0% 15%;
     justify-content: left;    
     padding: 5% 15%; 
     font-size: 0.6em;
@@ -61,7 +61,7 @@ footer {
 .header__menu__link{
     font-family: var(--primary-font);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--tertiary-color);
     text-decoration: none;
 }
@@ -71,7 +71,7 @@ footer {
 }
 
 .presentation{
-    padding: 5% 15%; 
+    padding: 2% 15%; 
     display: flex;
     justify-content: space-between;
     gap: 4rem;
@@ -94,7 +94,7 @@ footer {
 }
 
 .presentation__content__text{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: var(--primary-font);
 }
 
@@ -120,7 +120,7 @@ footer {
 .presentation__links__navigation{
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 1rem;
     border: 1px solid var(--tertiary-color);
     width: 50%;
     text-align: center;
@@ -146,10 +146,7 @@ footer {
     width: 40%;
     display: flex;
     justify-content: center;
-
 }
-
-
 
 @media (max-width: 1200px) {
     .header{
@@ -160,7 +157,7 @@ footer {
         justify-content: center;
     }
     .header__menu__link {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     .presentation{
         flex-direction: column-reverse;
@@ -170,7 +167,7 @@ footer {
         width: auto;
     }
     .presentation__image{
-        height: 200px;
+        height: 10.5rem;
         width: 100%;
-    } 
+    }
 }
