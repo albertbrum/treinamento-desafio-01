@@ -26,6 +26,7 @@ body{
     flex-direction: column;
     font-family: var(--primary-font);
     position: relative;
+    background-color: #000e38;
 }
 
 main{
@@ -35,9 +36,10 @@ main{
     align-items: flex-start;
     width: 90%;
     margin: 5vh auto;
-    padding: 50px;
-    box-shadow: 1px 1px 10px var(--shadow-color);
+    padding: 2.5rem;
+    box-shadow: 1px 1px 3px var(--shadow-color);
     gap: 20px;
+    background-color: var(--secondary-color);
 }
 
 footer {
@@ -50,14 +52,11 @@ footer {
     font-weight: 400;
 } 
 
-
 .header{
     display: flex;
-    padding: 1% 15% 1% 15%;
+    padding: 2% 15% 0% 15%;
     background-color: var(--primary-color);
-    height: 70px;
     text-align: left;
-    line-height: 2.5rem;
 }
 
 .header__menu{

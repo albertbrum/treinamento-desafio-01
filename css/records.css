@@ -20,7 +20,10 @@
 }
 
 tr:nth-child(even) {
-    background-color: #eaecf0;
+    background-color: #d1d4da;
+}
+tr:nth-child(odd) {
+    background-color: #eeeff4;
 }
 
 .records th:last-child,
