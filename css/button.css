@@ -36,6 +36,22 @@ button.red{
     margin: 0.5rem 0.3rem 0.5rem 0.3rem ;
 }
 
+button.presentation__links__navigation{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid var(--tertiary-color);
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.8rem 0;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: var(--primary-font);
+}
+
 button.grey{
     background-color: #727272;
     padding: 6px 10px 6px 10px ;

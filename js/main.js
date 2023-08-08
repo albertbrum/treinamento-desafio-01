@@ -60,16 +60,25 @@ function formatMobile(mobile) {
     // Verifica o lenght atual do número
     const lenght = onlyNumbers.length;
     // Aplica a máscara com base no tamanho do número
-    if (lenght === 11) {
+    if (length === 11) {
         return onlyNumbers
-        .replace(/(\d{2})/, '($1) ')
-        .replace(/(\d{5})/, '$1-')
-        .replace(/(\d{4})/, '$1')
+            .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
+    } else {
+        return onlyNumbers
+            .replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
     }
-    return onlyNumbers
-        .replace(/(\d{2})/, '($1) ')
-        .replace(/(\d{4})/, '$1-')
-        .replace(/(\d{4})/, '$1')
+
+
+    // if (lenght === 11) {
+    //     return onlyNumbers
+    //     .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4')
+    //     .replace(/(\d{5})/, '$1-')
+    //     .replace(/(\d{4})/, '$1')
+    // } else
+    //     return onlyNumbers
+    //     .replace(/(\d{2})/, '($1) ')
+    //     .replace(/(\d{4})/, '$1-')
+    //     .replace(/(\d{4})/, '$1')
 }
 
 // Função para atualizar o valor do campo com a máscara formatada

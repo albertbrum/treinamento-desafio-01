@@ -21,9 +21,12 @@
 
 tr:nth-child(even) {
     background-color: #d1d4da;
+    transition: 500ms ease;
+
 }
 tr:nth-child(odd) {
     background-color: #eeeff4;
+    transition: 500ms ease;
 }
 
 .records th:last-child,
@@ -35,6 +38,8 @@ tr:nth-child(odd) {
 
 .records tr:hover{
     background-color: var(--hover-color);
+    transition: 500ms ease;
+    cursor: pointer;
 }
 
 @media(max-width:1100px){
