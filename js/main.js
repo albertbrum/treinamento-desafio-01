@@ -53,25 +53,8 @@ const isValidFields = () => {
    return document.getElementById('formPerson').reportValidity()
 }
 
-// Função para aplicar a máscara de mobile
-function formatMobile(mobile) {
-    // Remove todos os caracteres não numéricos do número do mobile
-    // O \D é um metacaractere que representa qualquer caractere que não seja um dígito numérico (0 a 9).
-    const onlyNumbers = mobile.replace(/\D/g, '');
-    //Verifica o lenght atual do número
-    const lenght = onlyNumbers.length;
-    // Aplica a máscara com base no tamanho do número
-    if (lenght === 11) {
-        return onlyNumbers
-        .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4')
-        .replace(/(\d{5})/, '$1-')
-        .replace(/(\d{4})/, '$1')
-    } else
-        return onlyNumbers
-        .replace(/(\d{2})/, '($1) ')
-        .replace(/(\d{4})/, '$1-')
-        .replace(/(\d{4})/, '$1')
-}
+// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
+document.getElementById('mobile').addEventListener('input', maskMobile);
 
 // Função para atualizar o valor do campo com a máscara formatada
 function maskMobile() {
@@ -81,8 +64,23 @@ function maskMobile() {
     fieldMobile.value = numberFormated;
 }
 
-// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
-document.getElementById('mobile').addEventListener('input', maskMobile);
+// Função para aplicar a máscara de mobile
+function formatMobile(mobile) {
+    // Remove todos os caracteres não numéricos do número do mobile
+    // O \D é um metacaractere que representa qualquer caractere que não seja um dígito numérico (0 a 9).
+    const onlyNumbers = mobile.replace(/\D/g, '');
+    // Aplica a máscara com base no tamanho do número cel com 8 ou 9 numeros.
+    onlyNumbers.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
+    
+    if (onlyNumbers.length === 11) {
+        return onlyNumbers
+            .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
+    } else {
+        return onlyNumbers
+            .replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+    }
+}
+
 
 // *** INTERAÇÃO E MANIPULAÇÃO DO LAYOUT (HTML-CSS)
 const clearFields = () => {

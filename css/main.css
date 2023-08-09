@@ -50,7 +50,7 @@ footer {
     font-family: var(--primary-font);
     font-size: 1rem;
     font-weight: 400;
-} 
+}
 
 .header{
     display: flex;
@@ -78,11 +78,16 @@ footer {
 
 @media (max-width:900px){
     .header{
+        padding: 2% 10% 0% 10%;
         display: flex;
-        width:100%;
+        width: 100%;
         line-height: 14px;
         flex-flow: row;
         align-items: center;
+        position: relative;
+    }
+    .header__menu{
+        gap: 3rem;
     }
     .header-title{
         display: flex;
@@ -90,6 +95,7 @@ footer {
     }
     .header__menu__link{
         font-size: 0.8em;
+        vertical-align: middle;
     }
     main{
         padding: 0;

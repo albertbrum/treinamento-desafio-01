@@ -6,24 +6,24 @@
 }
 
 .records th{
-    height: 40px;
+    height: 2rem;
     background-color: var(--primary-color);
-    font-size: 18px;  
+    font-size: 1.1rem;  
     text-align: center;  
 }
 
 .records td{
-    height: 40px;
+    height: 2.5rem;
     color: var(--primary-color);
-    font-size: 16px; 
-    padding-left: 20px;
+    font-size: 1rem; 
+    padding-left: 0.8rem;
 }
 
 tr:nth-child(even) {
     background-color: #d1d4da;
     transition: 500ms ease;
-
 }
+
 tr:nth-child(odd) {
     background-color: #eeeff4;
     transition: 500ms ease;
@@ -32,7 +32,7 @@ tr:nth-child(odd) {
 .records th:last-child,
 .records td:last-child{
     padding: 0;
-    min-width: 140px;
+    min-width: 8.75rem;
     text-align: center;
 }
 
@@ -44,21 +44,33 @@ tr:nth-child(odd) {
 
 @media(max-width:1100px){
     .records{
-        border-spacing: 0.20rem;
+        border-spacing: 0.2rem;
+        box-shadow: 1px 1px 1px 1px var(--shadow-color);
     }
     .records thead{
         display:none;
     }
     .records tr{
-        box-shadow: 0 1px 3px var(--shadow-color);
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
     .records td:not(:first-child){
+        margin: 1rem 1rem 1rem 1rem;
         display:flex;
-        justify-content: space-between;
-        padding: 5 10px;
+        align-items: center;
+        justify-content:space-between;
+    }
+    .records td:first-child{
+        font-weight: 600;
+    }
+    .records td:last-child{
+        justify-content: center;
+        margin: 1rem 1rem 1rem 1rem;
     }
     .records td{
-        margin: 1px;
+        margin: 0px 0px 0px 0px;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: 1rem;
+        height: 1.5rem;
     }
     .records tr:hover{
         background-color: inherit;

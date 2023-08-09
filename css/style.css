@@ -23,6 +23,7 @@ body{
     box-sizing: border-box;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    min-height: 100vh;
 }
 
 li{
