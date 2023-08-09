@@ -54,7 +54,7 @@ tr:nth-child(odd) {
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
     .records td:not(:first-child){
-        margin: 1rem 1rem 1rem 1rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
         display:flex;
         align-items: center;
         justify-content:space-between;
