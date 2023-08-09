@@ -22,7 +22,14 @@
         </nav>
     </header>
     <main>
-        <button type="button" class="button orange mobile" onclick="openModal()" id="registerPerson">+ Novo</button>
+        <div class="content-button-search">
+            <div>        
+                <button type="button" class="button orange mobile" onclick="openModal()" id="registerPerson">+ Novo</button>
+            </div>
+            <div>
+                <input type="text" class="table-search" id="tableFieldSearch" placeholder="Buscar" maxlength="40">
+            </div>
+        </div>
         <table class="records" id="tablePerson">
             <thead>
                 <tr>
