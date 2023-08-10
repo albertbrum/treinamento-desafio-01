@@ -29,6 +29,11 @@ body{
     background-color: #000e38;
 }
 
+header{
+    justify-content: left;
+    padding: 3% 20% 1% 20%;
+}
+
 main{
     display: flex;
     flex-grow: 1;
@@ -38,7 +43,7 @@ main{
     margin: 5vh auto;
     padding: 2.5rem;
     box-shadow: 1px 1px 3px var(--shadow-color);
-    gap: 20px;
+    gap: 1rem;
     background-color: var(--secondary-color);
 }
 
@@ -52,14 +57,6 @@ footer {
     font-weight: 400;
 }
 
-.content-button-search {
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
-    width: 100%;
-}
-
 input.table-search{
     height: 40px;
     outline-style: none;
@@ -69,11 +66,12 @@ input.table-search{
     font-size:1rem;
 }
 
-.header{
+.content-button-search {
     display: flex;
-    padding: 2% 15% 0% 15%;
-    background-color: var(--primary-color);
-    text-align: left;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .header__menu{

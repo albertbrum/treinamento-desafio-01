@@ -202,15 +202,14 @@ const selectActions = (event) => {
 
 // const fieldSearchTxt = document.querySelector("#tableFieldSearch")
 
-// const searchText = (event) => {
-//     getLocalStorage.find((event,i)) => {
-//             if (event == getLocalStorage(i)){
+// const searchText = (event, dbPerson) => {
+//     const = serchtext => 
+//     dbPerson.find((event,i)) => {
+//             if (event(i) == getLocalStorage(i)){
 //                 return true
 //             }
 //     }
 // }
-
-
 
 // *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
@@ -231,5 +230,4 @@ document.querySelector('#tablePerson>tbody')
 // document.getElementById('buttonCancelPerson')
 //     .addEventListener('click', closeModal)
 
-// document.getElementById('#tableFieldSearch')
-//     .addEventListener('keypress', searchText)
+// document.addEventListener('click',document.getElementById()(console.log("teste")));

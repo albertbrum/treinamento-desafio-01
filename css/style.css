@@ -2,8 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
 }
 
 :root {
@@ -28,9 +27,7 @@ body{
 }
 
 header{
-    flex-grow: 1;
     justify-content: left;
-    width: 90%; 
     padding: 3% 20% 1% 20%;
 }
 
@@ -56,7 +53,7 @@ footer {
 li {
     font-family: var(--primary-font);
     font-size: 0.9rem;
-    padding: 2%;
+    padding: 1.5%;
     color: var(--tertiary-color);
 }
 
@@ -119,8 +116,10 @@ a {
 }
 
 .presentation__content__about__text{
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: var(--primary-font);
+    font-weight: 100;
+
 }
 
 .presentation__links{
