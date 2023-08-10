@@ -25,7 +25,7 @@ const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerso
 // Cadastrar Pessoa
 const createPerson = (dataPerson) => {
     const dbPerson = getLocalStorage()
-    dbPerson.push (dataPerson)
+    dbPerson.push(dataPerson)
     setLocalStorage(dbPerson)
 }
 
@@ -42,7 +42,7 @@ const updatePerson = (index, person) => {
 // Excluir Pessoa
 const deletePerson = (index) => {
     const dbPerson = readPerson()
-    dbPerson.splice(index,1)
+    dbPerson.splice(index, 1)
     setLocalStorage(dbPerson)
 }
 
@@ -50,11 +50,8 @@ const deletePerson = (index) => {
 
 // verifica se campos sao validos e retorna true ou false
 const isValidFields = () => {
-   return document.getElementById('formPerson').reportValidity()
+    return document.getElementById('formPerson').reportValidity()
 }
-
-// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
-document.getElementById('mobile').addEventListener('input', maskMobile);
 
 // Função para atualizar o valor do campo com a máscara formatada
 function maskMobile() {
@@ -71,7 +68,7 @@ function formatMobile(mobile) {
     const onlyNumbers = mobile.replace(/\D/g, '');
     // Aplica a máscara com base no tamanho do número cel com 8 ou 9 numeros.
     onlyNumbers.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
-    
+
     if (onlyNumbers.length === 11) {
         return onlyNumbers
             .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
@@ -126,7 +123,7 @@ const savePerson = () => {
     }
 }
 
- // Estrutura criar os dados em HTML em uma nova linha a partir de um registro do Local Storage
+// Função para criar as linhas em HTML a partir dos registros de Local Storage
 const createRow = (person, index) => {
     const newRow = document.createElement('tr')
     newRow.innerHTML = `
@@ -141,7 +138,7 @@ const createRow = (person, index) => {
             <button type="button" class="button green" id="edit-${index}">Editar</button>
             <button type="button" class="button red" id="delete-${index}">Excluir</button>
         </td>
-        `   
+        `
     // Constroi uma nova linha filha dentro da "tbody", criada dentro tabela com id "tablePerson"
     document.querySelector('#tablePerson>tbody').appendChild(newRow)
 }
@@ -187,14 +184,14 @@ const selectActions = (event) => {
     if (event.target.type == 'button') {
         // Separa nome do botão pelo "-" para condição de edição ou exclusão
         const [action, index] = event.target.id.split('-')
-        if(action == 'edit') {
+        if (action == 'edit') {
             editPerson(index)
         } else {
             const client = readPerson()[index]
             const response = confirm(`Deseja excluir ${client.name} ?`)
             if (response) {
-            deletePerson(index)
-            updateTable()
+                deletePerson(index)
+                updateTable()
             }
         }
     }
@@ -214,6 +211,9 @@ const selectActions = (event) => {
 // *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
 
+
+
+//*** EVENTOS DE ESCUTA
 // REFATORAÇÃO PARA DIMINUIÇÃO DE PROCESSAMENTO "IN SERVER" COM USO DO ON CLICK NO HTML
 // document.getElementById('registerPerson')
 //     .addEventListener('click', openModal)
@@ -230,4 +230,25 @@ document.querySelector('#tablePerson>tbody')
 // document.getElementById('buttonCancelPerson')
 //     .addEventListener('click', closeModal)
 
-// document.addEventListener('click',document.getElementById()(console.log("teste")));
+
+// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
+
+document.querySelector('#tableFieldSearch')
+    .addEventListener('input', searchPerson)
+
+function searchPerson(event) {
+    const txtSearch = event.target.value
+    //console.log(txtSearch)
+    const dbPerson = readPerson()
+    //console.log(dbPerson)
+    console.log(dbPerson.name.value.index[1])
+    //console.log(dbPerson.find(txtSearch))
+    // if (event.target.type = 'input') {
+    //         if (txtSearch == dbPerson.name.value) {
+    //         console.log(dbPerson)
+        // if (dbPerson.name.value == searchPerson) {
+        //     dbPerson.forEach(createRow)
+        // }
+    }
+// }
+// }
