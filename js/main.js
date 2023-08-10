@@ -52,6 +52,8 @@ const deletePerson = (index) => {
 const isValidFields = () => {
     return document.getElementById('formPerson').reportValidity()
 }
+// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
+document.getElementById('mobile').addEventListener('input', maskMobile);
 
 // Função para atualizar o valor do campo com a máscara formatada
 function maskMobile() {
@@ -77,7 +79,6 @@ function formatMobile(mobile) {
             .replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
     }
 }
-
 
 // *** INTERAÇÃO E MANIPULAÇÃO DO LAYOUT (HTML-CSS)
 const clearFields = () => {
@@ -179,8 +180,10 @@ const editPerson = (index) => {
     openModal()
 }
 
+
 // Função para Seleção do botão de edição ou Exclusão
 const selectActions = (event) => {
+    console.log(event)
     if (event.target.type == 'button') {
         // Separa nome do botão pelo "-" para condição de edição ou exclusão
         const [action, index] = event.target.id.split('-')
@@ -197,58 +200,37 @@ const selectActions = (event) => {
     }
 }
 
-// const fieldSearchTxt = document.querySelector("#tableFieldSearch")
+function searchPerson(event) {
+    console.log(event)
+ 
+    // Converte o texto de pesquisa para minúsculas
+    clearTable()
+    const txtSearch = event.target.value.toLowerCase(); 
+    console.log(txtSearch);
+    const dbPerson = readPerson();
 
-// const searchText = (event, dbPerson) => {
-//     const = serchtext => 
-//     dbPerson.find((event,i)) => {
-//             if (event(i) == getLocalStorage(i)){
-//                 return true
-//             }
-//     }
-// }
+    // Loop que constroe as linhas a partir da comparação com o texto do campo busca e a lista de registros
+    dbPerson.forEach(person => {
+        // Busca as texto de busca nos registros e converte o texto da lista em minusculas
+        if (person.name.toLowerCase().includes(txtSearch)) { 
+            console.log(person.name);
+            console.log(txtSearch)
+            const index = person.index
+            createRow(person,index);
+        }
+    });
+}
 
 // *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
 
-
-
-//*** EVENTOS DE ESCUTA
-// REFATORAÇÃO PARA DIMINUIÇÃO DE PROCESSAMENTO "IN SERVER" COM USO DO ON CLICK NO HTML
-// document.getElementById('registerPerson')
-//     .addEventListener('click', openModal)
-
-// document.getElementById('modalClose')
-//     .addEventListener('click', closeModal)
-
-// document.getElementById('buttonSavePerson')
-//     .addEventListener('click', savePerson)
-
-document.querySelector('#tablePerson>tbody')
-    .addEventListener('click', selectActions)
-
-// document.getElementById('buttonCancelPerson')
-//     .addEventListener('click', closeModal)
-
-
-// Adiciona o evento 'input' para chamar a função de máscara sempre que o usuário digitar algo
-
+// Evento de Escuta para o campo de busca
 document.querySelector('#tableFieldSearch')
     .addEventListener('input', searchPerson)
 
-function searchPerson(event) {
-    const txtSearch = event.target.value
-    //console.log(txtSearch)
-    const dbPerson = readPerson()
-    //console.log(dbPerson)
-    console.log(dbPerson.name.value.index[1])
-    //console.log(dbPerson.find(txtSearch))
-    // if (event.target.type = 'input') {
-    //         if (txtSearch == dbPerson.name.value) {
-    //         console.log(dbPerson)
-        // if (dbPerson.name.value == searchPerson) {
-        //     dbPerson.forEach(createRow)
-        // }
-    }
-// }
-// }
+// *** Evento de Escuta dos Botões de Edição e Exclusão
+document.querySelector('#tablePerson>tbody')
+    .addEventListener('click', selectActions)
+
+
+
