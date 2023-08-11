@@ -1,5 +1,7 @@
-// Utilização mais segura do EMA Script 2020
+// Use Strict - Utilização de prática recomendada mais segura a partir do ECMAScript 5
 'use strict'
+
+// *** Exibição da TELA/MODAL
 // Função para Abrir a Tela/Modal com Formulário de Pessoa
 const openModal = () => document.getElementById('modal')
     .classList.add('active')

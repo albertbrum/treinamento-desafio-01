@@ -63,7 +63,7 @@
                     <div class="content-fields">
                         <label class="label-field">Data de Nascimento</label>
                         <input type="date" class="modal-field" id="dateOfBirth" placeholder="DD/MM/AAAA"
-                            min="1880-01-01" max="2023-08-08" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+                            min="1880-01-01" max="2023-08-08" pattern="\d{1,2}/\d{1,2}/\d{4}" title="Digite uma data válida" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Genero</label>
@@ -83,11 +83,11 @@
                     </div>
                     <div class="content-fields">
                         <label class="label-field">E-mail</label>
-                        <input type="email" class="modal-field" id="email" placeholder="seuemail@seudominio.com.br" maxlength="50" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                        <input type="email" class="modal-field" id="email" placeholder="seuemail@seudominio.com.br" maxlength="50" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Digite um email válido" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Celular</label>
-                        <input type="tel" class="modal-field" id="mobile" placeholder="(XX) X XXXX-XXXX" maxlength="15" size="15" required>
+                        <input type="tel" class="modal-field" id="mobile" placeholder="(XX) X XXXX-XXXX" maxlength="15" size="15" pattern="\(\d{2}\)( \d)? \d{4}-\d{4}" title="Digite um número de celular válido (99) 9 9999-9999 ou (99) 9999-9999" required>
                     </div>
                 </form>
                 <footer class="modal-footer">
