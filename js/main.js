@@ -7,8 +7,12 @@ const openModal = () => document.getElementById('modal')
     .classList.add('active')
 // Função para Fechar a Tela/Modal com Formulário de Pessoa
 const closeModal = () => {
+    console.log(document.getElementById('name').dataset.index)
     document.getElementById('modal').classList.remove('active')
     clearFields()
+    console.log(document.getElementById('name').dataset.index)
+    document.getElementById('name').dataset.index = "new"
+    console.log(document.getElementById('name').dataset.index)
 }
 // *** GET E SET LOCAL STORAGE
 // setItem - envio dos dados para localstorage
@@ -95,9 +99,10 @@ function formatDateInput(dateString) {
     const [day, month, year] = dateString.split('/');
     return `${year}-${month}-${day}`;
 }
-
+console.log(document.getElementById('name').dataset.index)
 // Recupera os dados do formulário para criar ou atualizar em Local Storage
 const savePerson = () => {
+    console.log(document.getElementById('name').dataset.index)
     // Validação dos Campos e construção da lista com informações do campo
     if (isValidFields()) {
         const person = {
@@ -110,13 +115,14 @@ const savePerson = () => {
             email: document.getElementById('email').value,
         }
         // Estrutura para verificação se "Cria" Pessoa ou "Edita" Pessoa via data atribuite (data-index="new")
-        const index = document.getElementById('name').dataset.index
-        if (index == 'new') {
+        const indexData = document.getElementById('name').dataset.index
+        console.log(indexData)
+        if (indexData == 'new') {
             createPerson(person)
             updateTable()
             closeModal()
         } else {
-            updatePerson(index, person)
+            updatePerson(indexData, person)
             updateTable()
             closeModal()
         }
@@ -183,14 +189,14 @@ const editPerson = (index) => {
 const selectActions = (event) => {
     if (event.target.type == 'button') {
         // Separa nome do botão pelo "-" para condição de edição ou exclusão
-        const [action, index] = event.target.id.split('-')
+        const [action, indexAction] = event.target.id.split('-')
         if (action == 'edit') {
-            editPerson(index)
+            editPerson(indexAction)
         } else {
-            const client = readPerson()[index]
+            const client = readPerson()[indexAction]
             const response = confirm(`Deseja excluir ${client.name} ?`)
             if (response) {
-                deletePerson(index)
+                deletePerson(indexAction)
                 updateTable()
             }
         }
