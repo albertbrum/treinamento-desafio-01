@@ -9,10 +9,10 @@
 :root {
     /* Pallets Colors */
     --primary-color: #000e38;
-    --secondary-color: #ffffff;
+    --secondary-color: #f8faff;
     --tertiary-color: #ffa01a;
-    --shadow-color: #b4b4b4;
-    --hover-color: #c9dcfc;
+    --shadow-color: #000104;
+    --hover-color: #6992ea;
     --text-color: #FFF;
     /* Fonts */
     --primary-font: 'Roboto', sans-serif;
@@ -58,10 +58,10 @@ footer {
 }
 
 input.table-search{
-    height: 40px;
+    height: 2.5rem;
     outline-style: none;
     border-style: none;
-    box-shadow: 0 0 2px black;
+    box-shadow: var(--shadow-color);
     padding: 0 10px;
     font-size:1rem;
 }

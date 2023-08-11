@@ -22,7 +22,7 @@
     margin: 15vh auto;
     padding-bottom: 20px;
     background-color: var(--secondary-color);
-    box-shadow: 1px 1px 10px rgb(67, 67, 67);
+    box-shadow: var(--shadow-color)
 }
 
 .modal-header{
@@ -57,8 +57,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 0 20px; 
+    gap: 1.25rem;
+    padding: 0 1.25rem; 
 }
 
 .content-fields{
@@ -68,12 +68,12 @@
 }
 
 .modal-field{
-    height: 40px;
+    height: 2.5rem;
     outline-style: none;
     border-style: none;
     box-shadow: 0 0 2px black;
-    padding: 0 10px;
-    font-size:1rem;
+    padding: 0 0.8rem;
+    font-size: 1rem;
 }
 
 .modal-field:focus{
@@ -82,30 +82,32 @@
 }
 
 .label-field{
-    font-size: 12px;
-    padding: 0 0 0.2rem 0;
+    font-size: 0.75rem;
+    padding: 0 0 0.5rem 0;
 }
 
 .modal-footer{
     background-color: inherit;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     display: flex;
     flex-flow: row-reverse;
 }
 
 .labelInput{
-    font-size: 20px;
+    font-size: 1.25rem;
     pointer-events: none;
     transition: .5s;
     position:relative;
     position:initial;
 }
-.modal-field:focus ~ .labelInput,
+
+/* TESTES DE TRANSIÇÃO DO LABEL QUANDO RECEBE O FOCO
+/* .modal-field:focus ~ .labelInput,
 .modal-field:valid ~ .labelInput{
     top: -20px;
-    font-size: 12px;
+    font-size: 10rem;
     color: rgb(34, 140, 246);
-}
+} */
 
 @media (max-width:900px){
     .modal{

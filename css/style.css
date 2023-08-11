@@ -8,10 +8,10 @@
 :root {
     /* Pallets Colors */
     --primary-color: #000e38;
-    --secondary-color: #EFEDFF;
+    --secondary-color: #f8faff;
     --tertiary-color: #ffa01a;
-    --shadow-color: #CCC;
-    --hover-color: #2c51e5;
+    --shadow-color: #090c22;
+    --hover-color: #6992ea;
     --text-color: #FFF;
     /* Fonts */
     --primary-font: 'Roboto', sans-serif;

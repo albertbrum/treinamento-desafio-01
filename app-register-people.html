@@ -57,13 +57,13 @@
                 <form class="modal-form" id="formPerson">
                     <div class="content-fields">
                         <label class="label-field">Nome Completo</label>
-                        <input type="text" class="modal-field" id="name" data-index="new" placeholder="Nome Completo"
+                        <input type="text" class="modal-field" id="name" data-index="new" placeholder="Digite seu nome completo"
                             maxlength="40" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Data de Nascimento</label>
-                        <input type="date" class="modal-field" id="dateOfBirth" placeholder="Data Nascimento"
-                            min="1880-01-01" max="2023-08-08" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
+                        <input type="date" class="modal-field" id="dateOfBirth" placeholder="DD/MM/AAAA"
+                            min="1880-01-01" max="2023-08-08" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Genero</label>
@@ -73,21 +73,21 @@
                             <option value="Feminino">Feminino</option>
                         </select>
                     </div>
-                    <div class="content-fields"><label class="label-field">Endereço</label>
-                        <input type="text" class="modal-field" id="address" placeholder="Endereço" maxlength="100"
+                    <div class="content-fields"><label class="label-field">Logradouro, Número</label>
+                        <input type="text" class="modal-field" id="address" placeholder="Rua, Av, Praça.., n. XXX" maxlength="100"
                             required>
                     </div>
                     <div class="content-fields">
-                        <label class="label-field">Cidade</label>
-                        <input type="text" class="modal-field" id="city" placeholder="Cidade" maxlength="40" required>
+                        <label class="label-field">Cidade/UF</label>
+                        <input type="text" class="modal-field" id="city" placeholder="Cidade/UF" maxlength="40" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">E-mail</label>
-                        <input type="email" class="modal-field" id="email" placeholder="e-mail" maxlength="50" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                        <input type="email" class="modal-field" id="email" placeholder="seuemail@seudominio.com.br" maxlength="50" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
                     </div>
                     <div class="content-fields">
                         <label class="label-field">Celular</label>
-                        <input type="tel" class="modal-field" id="mobile" placeholder="Celular" maxlength="15" size="15" required>
+                        <input type="tel" class="modal-field" id="mobile" placeholder="(XX) X XXXX-XXXX" maxlength="15" size="15" required>
                     </div>
                 </form>
                 <footer class="modal-footer">

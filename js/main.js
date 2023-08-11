@@ -1,15 +1,13 @@
 // Utilização mais segura do EMA Script 2020
 'use strict'
-
-// Abre o Modal com Formulário de Pessoa
+// Função para Abrir a Tela/Modal com Formulário de Pessoa
 const openModal = () => document.getElementById('modal')
     .classList.add('active')
-// Fecha o Modal com Formulário de Pessoa
+// Função para Fechar a Tela/Modal com Formulário de Pessoa
 const closeModal = () => {
     document.getElementById('modal').classList.remove('active')
     clearFields()
 }
-
 // *** GET E SET LOCAL STORAGE
 // setItem - envio dos dados para localstorage
 // getItem - recupera dados do localstorage
@@ -17,28 +15,27 @@ const closeModal = () => {
 // JSON.parse - recebe em JSON/texto e constroe novamente o objeto
 // push - adiciona um ou mais elementos ao final de um array
 // ?? - Se retornar null retorna valor após "??", no caso []
-const getLocalStorage = () => JSON.parse(localStorage.getItem('localStoKeyListPerson')) ?? []
+
+// Função para enviar os dados do formulario de pessoas para Local Storage.
 const setLocalStorage = (dbPerson) => localStorage.setItem("localStoKeyListPerson", JSON.stringify(dbPerson))
+// Função para receber os dados de Local Storage ou Criar um array vazio
+const getLocalStorage = () => JSON.parse(localStorage.getItem('localStoKeyListPerson')) ?? []
 
 // *** CRUD - CREATE, READ, UPDATE, DELETE
-
 // Cadastrar Pessoa
 const createPerson = (dataPerson) => {
     const dbPerson = getLocalStorage()
     dbPerson.push(dataPerson)
     setLocalStorage(dbPerson)
 }
-
 // Ler Pessoa
 const readPerson = () => getLocalStorage()
-
 // Atualizar Pessoa
 const updatePerson = (index, person) => {
     const dbPerson = readPerson()
     dbPerson[index] = person
     setLocalStorage(dbPerson)
 }
-
 // Excluir Pessoa
 const deletePerson = (index) => {
     const dbPerson = readPerson()
@@ -86,12 +83,12 @@ const clearFields = () => {
     fields.forEach(field => field.value = "")
 }
 
-// Manipulação da Data para formato Brasileiro
+// Manipulação da data para exibição na tabela em formato brasileiro
 function formatDateBrazil(dateString) {
     const [year, month, day] = dateString.split('-');
     return `${day}/${month}/${year}`;
 }
-
+// Manipulação da data para formato do campo input
 function formatDateInput(dateString) {
     const [day, month, year] = dateString.split('/');
     return `${year}-${month}-${day}`;
@@ -172,7 +169,7 @@ const fillFields = (person) => {
     document.getElementById('name').dataset.index = person.index
 }
 
-// Função Abertura do Modal e e chamada de preenchimento para edição do registro de pessoa em Local Storage
+// Função abertura da tela/modal e chamada de preenchimento para edição do registro de pessoa em Local Storage
 const editPerson = (index) => {
     const person = readPerson()[index]
     person.index = index
@@ -180,8 +177,7 @@ const editPerson = (index) => {
     openModal()
 }
 
-
-// Função para Seleção do botão de edição ou Exclusão
+// Função para seleção do botão de edição ou exclusão
 const selectActions = (event) => {
     if (event.target.type == 'button') {
         // Separa nome do botão pelo "-" para condição de edição ou exclusão
@@ -198,6 +194,11 @@ const selectActions = (event) => {
         }
     }
 }
+
+// TESTES COM CAMPO DE BUSCA DE PESSOAS
+// // Evento de Escuta para o campo de busca
+// document.querySelector('#tableFieldSearch')
+//     .addEventListener('input', searchPerson)
 
 // TESTES COM CAMPO DE BUSCA DE PESSOAS
 // function searchPerson(event) {
@@ -224,15 +225,12 @@ const selectActions = (event) => {
 // *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
 
+// *** EVENTOS DE ESCUTA
 
-// TESTES COM CAMPO DE BUSCA DE PESSOAS
-// // Evento de Escuta para o campo de busca
-// document.querySelector('#tableFieldSearch')
-//     .addEventListener('input', searchPerson)
-
-// *** Evento de Escuta dos Botões de Edição e Exclusão
+// Evento de Escuta dos Botões de Edição e Exclusão
 document.querySelector('#tablePerson>tbody')
     .addEventListener('click', selectActions)
+
 
 
 
