@@ -183,7 +183,6 @@ const editPerson = (index) => {
 
 // Função para Seleção do botão de edição ou Exclusão
 const selectActions = (event) => {
-    console.log(event)
     if (event.target.type == 'button') {
         // Separa nome do botão pelo "-" para condição de edição ou exclusão
         const [action, index] = event.target.id.split('-')
@@ -200,33 +199,36 @@ const selectActions = (event) => {
     }
 }
 
-function searchPerson(event) {
-    console.log(event)
+// TESTES COM CAMPO DE BUSCA DE PESSOAS
+// function searchPerson(event) {
+//     console.log(event)
  
-    // Converte o texto de pesquisa para minúsculas
-    clearTable()
-    const txtSearch = event.target.value.toLowerCase(); 
-    console.log(txtSearch);
-    const dbPerson = readPerson();
+//     // Converte o texto de pesquisa para minúsculas
+//     clearTable()
+//     const txtSearch = event.target.value.toLowerCase(); 
+//     //console.log(txtSearch);
+//     const dbPerson = readPerson();
 
-    // Loop que constroe as linhas a partir da comparação com o texto do campo busca e a lista de registros
-    dbPerson.forEach(person => {
-        // Busca as texto de busca nos registros e converte o texto da lista em minusculas
-        if (person.name.toLowerCase().includes(txtSearch)) { 
-            console.log(person.name);
-            console.log(txtSearch)
-            const index = person.index
-            createRow(person,index);
-        }
-    });
-}
+//     // Loop que constroe as linhas a partir da comparação com o texto do campo busca e a lista de registros
+//     dbPerson.forEach(person => {
+//         // Busca as texto de busca nos registros e converte o texto da lista em minusculas
+//         if (person.name.toLowerCase().includes(txtSearch)) { 
+//             console.log(person.name);
+//             console.log(txtSearch)
+//             const index = person.index
+//             createRow(person,index);
+//         }
+//     });
+// }
 
 // *** CARREGAMENTO DA LISTA EM LOCAL STORAGE
 updateTable()
 
-// Evento de Escuta para o campo de busca
-document.querySelector('#tableFieldSearch')
-    .addEventListener('input', searchPerson)
+
+// TESTES COM CAMPO DE BUSCA DE PESSOAS
+// // Evento de Escuta para o campo de busca
+// document.querySelector('#tableFieldSearch')
+//     .addEventListener('input', searchPerson)
 
 // *** Evento de Escuta dos Botões de Edição e Exclusão
 document.querySelector('#tablePerson>tbody')
