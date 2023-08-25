@@ -24,6 +24,7 @@ body{
     min-height: 100vh;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    -webkit-font-smoothing: antialiased;
 }
 
 header{

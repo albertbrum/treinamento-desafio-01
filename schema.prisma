@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("postgres://nmfpltma:NVkafX5s0pzRGW670G4Xh1EAXkIxPzRa@silly.db.elephantsql.com/nmfpltma")
+}
+
+model Pessoa {
+  id           Int       @id @default(autoincrement())
+  name         String
+  dateOfBirth  DateTime
+  gender       String
+  address      String
+  city         String
+  mobile       String
+  email        String
+}
